@@ -11,8 +11,15 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from getenv import env
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# PATHS
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -24,6 +31,14 @@ SECRET_KEY = 'oo-v@4449gku&l24yk0rg%i1o&%l28l9qotncv)5_olxnzg*!1'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+TEMPLATE_DIRS = [
+    TEMPLATE_PATH,
+]
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rango',
 )
 
 MIDDLEWARE_CLASSES = (
